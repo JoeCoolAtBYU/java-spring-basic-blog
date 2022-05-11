@@ -4,6 +4,7 @@ import com.pluralsight.blog.model.Post;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 import org.springframework.stereotype.Component;
 import java.util.List;
 
@@ -15,6 +16,11 @@ public class PostRepository {
     }
 
     public Post findById(Long id) {
+        for (Post p: ALL_POSTS) {
+            if (Objects.equals(p.getId(), id)){
+                return p;
+            }
+        }
         return null;
     }
 
